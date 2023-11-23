@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div.parent{
+    width: 350px;
+    height: 350px;
+    margin: 50px auto;
+    background-color: aqua;
+    position: relative;
+    perspective: 800px;
+}
+div.parent::before{
+    content: "";
+    width: 50%;
+    height: 100%;
+    background-color: deeppink;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid black;
+    transition: 500ms;
+    transform-origin: top left;
+}
+div.parent::after{
+    content: "";
+    width: 50%;
+    height: 100%;
+    background-color: deeppink;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid black;
+    transform-origin: top right;
+    transition: 300ms;
+
+}
+div.parent:hover::before{
+    transform: rotateY(-90deg);
+}
+div.parent:hover::after{
+    transform: rotateY(90deg);
+}
